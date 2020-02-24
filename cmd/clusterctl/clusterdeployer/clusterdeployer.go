@@ -120,6 +120,7 @@ func (d *ClusterDeployer) Create(resources *yaml.ParseOutput, kubeconfigOutput s
 		}
 	}
 
+  /* Do not pivot when using an existing k8s cluster with CAPI installed.
 	klog.Info("Pivoting Cluster API stack to target cluster")
 	if err := phases.Pivot(bootstrapClient, targetClient, d.providerComponents); err != nil {
 		return errors.Wrap(err, "unable to pivot cluster api stack to target cluster")
@@ -130,6 +131,7 @@ func (d *ClusterDeployer) Create(resources *yaml.ParseOutput, kubeconfigOutput s
 	if err != nil {
 		return errors.Wrap(err, "unable to save provider components to target cluster")
 	}
+  */
 
 	if len(controlPlaneMachines) > 1 {
 		// TODO(h0tbird) Done serially until kubernetes/kubeadm#1097 is resolved and all
